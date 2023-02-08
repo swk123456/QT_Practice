@@ -2,9 +2,10 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QTcpServer>
-#include <QTcpSocket>
-#include <mythread.h>
+#include <QSqlDatabase>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QSqlTableModel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -19,12 +20,12 @@ public:
     ~Widget();
 
 private slots:
-    void newClientHandler();
-    //void clientInfoSlot();
-    void threadSlot(QString s);
+    void on_pushButtonInsert_clicked();
+    void on_pushButtonSearch_clicked();
 
 private:
     Ui::Widget *ui;
-    QTcpServer *server;
+    QSqlDatabase db;
+    QSqlTableModel *m;
 };
 #endif // WIDGET_H

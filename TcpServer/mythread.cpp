@@ -13,5 +13,7 @@ void myThread::run()
 //不能在其他类里操作页面
 void myThread::clientInfoSlot()
 {
-    qDebug() << socket->readAll();
+    QString s = QString(socket->readAll());
+    qDebug() << s;
+    emit sendToWidget(s);//发送信号给widget
 }

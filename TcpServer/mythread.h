@@ -13,6 +13,7 @@ public:
     void run();//继承自QThread的虚函数
 
 signals:
+    void sendToWidget(QString s);//自定义信号，发送信息
 
 private slots:
     void clientInfoSlot();
